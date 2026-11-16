@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar jogo — Catálogo de Jogos</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body data-page="cadastrar">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="../listagem/listar.html" class="topbar__brand">
+          <span class="topbar__brand-mark">G</span>
+          <span class="topbar__brand-name">Catálogo de Jogos</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Navegação principal">
+          <a class="nav-link" data-page="listar" href="../listagem/listar.html">Listar</a>
+          <a class="nav-link" data-page="cadastrar" href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a class="nav-link" data-page="consultar" href="../consulta/consultar.html">Consultar</a>
+          <a class="nav-link" data-page="editar" href="../edicao/editar.html">Editar</a>
+          <a class="nav-link" data-page="excluir" href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__inner">
+        <span class="hero__eyebrow">Função: Cadastro</span>
+        <h1 class="hero__title">Cadastrar novo jogo</h1>
+        <p class="hero__subtitle">
+          Ao enviar o formulário, o JavaScript chama
+          <code>fetch("/jogos", { method: "POST", body: JSON.stringify(dados) })</code>
+          com o cabeçalho <code>Content-Type: application/json</code>.
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+
+          <div class="card">
+            <h2 style="font-size: var(--text-subheading); margin-bottom: var(--spacing-8)">
+              Dados do jogo
+            </h2>
+            <p class="section__hint" style="margin-bottom: var(--spacing-20)">
+              Todos os campos são obrigatórios. O ano de lançamento deve ser um número inteiro.
+            </p>
+
+            <form id="jogo-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="campo-titulo">Título</label>
+                  <input type="text" id="campo-titulo" name="titulo" placeholder="Ex: Minecraft" />
+                  <span class="field__error">Informe o título do jogo.</span>
+                </div>
+
+                <div class="field">
+                  <label for="campo-plataforma">Plataforma</label>
+                  <input type="text" id="campo-plataforma" name="plataforma" placeholder="Ex: PC" />
+                  <span class="field__error">Informe a plataforma.</span>
+                </div>
+
+                <div class="field">
+                  <label for="campo-genero">Gênero</label>
+                  <input type="text" id="campo-genero" name="genero" placeholder="Ex: Sandbox" />
+                  <span class="field__error">Informe o gênero.</span>
+                </div>
+
+                <div class="field">
+                  <label for="campo-ano">Ano de lançamento</label>
+                  <input type="number" id="campo-ano" name="anoLancamento" placeholder="Ex: 2011" />
+                  <span class="field__error">Informe um ano válido.</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" id="btn-salvar" class="btn btn-primary">Cadastrar jogo</button>
+                <button type="button" id="btn-limpar" class="btn btn-outline">Limpar formulário</button>
+                <a class="ghost-link" href="../listagem/listar.html">Ver lista de jogos ›</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="site-footer__links" aria-label="Links do rodapé">
+          <a href="../listagem/listar.html">Listar</a>
+          <a href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a href="../consulta/consultar.html">Consultar</a>
+          <a href="../edicao/editar.html">Editar</a>
+          <a href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="cadastrar.js"></script>
+  </body>
+</html>

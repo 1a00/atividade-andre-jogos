@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excluir jogo — Catálogo de Jogos</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body data-page="excluir">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="../listagem/listar.html" class="topbar__brand">
+          <span class="topbar__brand-mark">G</span>
+          <span class="topbar__brand-name">Catálogo de Jogos</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Navegação principal">
+          <a class="nav-link" data-page="listar" href="../listagem/listar.html">Listar</a>
+          <a class="nav-link" data-page="cadastrar" href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a class="nav-link" data-page="consultar" href="../consulta/consultar.html">Consultar</a>
+          <a class="nav-link" data-page="editar" href="../edicao/editar.html">Editar</a>
+          <a class="nav-link" data-page="excluir" href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__inner">
+        <span class="hero__eyebrow">Função: Exclusão</span>
+        <h1 class="hero__title">Excluir jogo</h1>
+        <p class="hero__subtitle">
+          Primeiro o jogo é carregado com <code>fetch("/jogos/" + id)</code> para confirmação
+          visual. Ao confirmar, o JavaScript chama
+          <code>fetch("/jogos/" + id, { method: "DELETE" })</code>.
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+
+          <div class="card">
+            <h2 style="font-size: var(--text-subheading); margin-bottom: var(--spacing-16)">
+              1. Localizar jogo
+            </h2>
+            <div class="search-row">
+              <div class="field">
+                <label for="busca-id">ID do jogo</label>
+                <input type="number" id="busca-id" placeholder="Ex: 1" />
+              </div>
+              <button type="button" id="btn-buscar" class="btn btn-outline">Buscar jogo</button>
+            </div>
+          </div>
+
+          <div id="confirm-panel" class="confirm-panel hidden" style="margin-top: var(--spacing-20)">
+            <p class="confirm-panel__title">
+              Tem certeza que deseja excluir este jogo? Essa ação não pode ser desfeita.
+            </p>
+            <dl class="detail-grid" id="confirm-detalhes"></dl>
+            <div class="form-actions" style="margin-top: 0">
+              <button type="button" id="btn-confirmar-exclusao" class="btn btn-danger-filled">
+                Excluir definitivamente
+              </button>
+              <button type="button" id="btn-cancelar-exclusao" class="btn btn-outline">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="site-footer__links" aria-label="Links do rodapé">
+          <a href="../listagem/listar.html">Listar</a>
+          <a href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a href="../consulta/consultar.html">Consultar</a>
+          <a href="../edicao/editar.html">Editar</a>
+          <a href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="excluir.js"></script>
+  </body>
+</html>

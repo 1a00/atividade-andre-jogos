@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar jogo — Catálogo de Jogos</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body data-page="editar">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="../listagem/listar.html" class="topbar__brand">
+          <span class="topbar__brand-mark">G</span>
+          <span class="topbar__brand-name">Catálogo de Jogos</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Navegação principal">
+          <a class="nav-link" data-page="listar" href="../listagem/listar.html">Listar</a>
+          <a class="nav-link" data-page="cadastrar" href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a class="nav-link" data-page="consultar" href="../consulta/consultar.html">Consultar</a>
+          <a class="nav-link" data-page="editar" href="../edicao/editar.html">Editar</a>
+          <a class="nav-link" data-page="excluir" href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__inner">
+        <span class="hero__eyebrow">Função: Atualização</span>
+        <h1 class="hero__title">Editar jogo</h1>
+        <p class="hero__subtitle">
+          Primeiro o ID é carregado com <code>fetch("/jogos/" + id)</code> para preencher o
+          formulário. Ao salvar, o JavaScript chama
+          <code>fetch("/jogos/" + id, { method: "PUT", body: JSON.stringify(dados) })</code>.
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+
+          <div class="card">
+            <h2 style="font-size: var(--text-subheading); margin-bottom: var(--spacing-16)">
+              1. Carregar jogo pelo ID
+            </h2>
+            <div class="search-row">
+              <div class="field">
+                <label for="busca-id">ID do jogo</label>
+                <input type="number" id="busca-id" placeholder="Ex: 1" />
+              </div>
+              <button type="button" id="btn-carregar" class="btn btn-outline">Carregar dados</button>
+            </div>
+          </div>
+
+          <div class="card" id="form-card" style="margin-top: var(--spacing-20)">
+            <h2 style="font-size: var(--text-subheading); margin-bottom: var(--spacing-8)">
+              2. Atualizar dados
+            </h2>
+            <p class="section__hint" style="margin-bottom: var(--spacing-20)">
+              Carregue um jogo acima para habilitar a edição dos campos.
+            </p>
+
+            <form id="jogo-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="campo-titulo">Título</label>
+                  <input type="text" id="campo-titulo" name="titulo" placeholder="Ex: Minecraft" disabled />
+                  <span class="field__error">Informe o título do jogo.</span>
+                </div>
+
+                <div class="field">
+                  <label for="campo-plataforma">Plataforma</label>
+                  <input type="text" id="campo-plataforma" name="plataforma" placeholder="Ex: PC" disabled />
+                  <span class="field__error">Informe a plataforma.</span>
+                </div>
+
+                <div class="field">
+                  <label for="campo-genero">Gênero</label>
+                  <input type="text" id="campo-genero" name="genero" placeholder="Ex: Sandbox" disabled />
+                  <span class="field__error">Informe o gênero.</span>
+                </div>
+
+                <div class="field">
+                  <label for="campo-ano">Ano de lançamento</label>
+                  <input type="number" id="campo-ano" name="anoLancamento" placeholder="Ex: 2011" disabled />
+                  <span class="field__error">Informe um ano válido.</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" id="btn-salvar" class="btn btn-primary" disabled>
+                  Salvar alterações
+                </button>
+                <a class="ghost-link" href="../listagem/listar.html">Ver lista de jogos ›</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="site-footer__links" aria-label="Links do rodapé">
+          <a href="../listagem/listar.html">Listar</a>
+          <a href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a href="../consulta/consultar.html">Consultar</a>
+          <a href="../edicao/editar.html">Editar</a>
+          <a href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="editar.js"></script>
+  </body>
+</html>

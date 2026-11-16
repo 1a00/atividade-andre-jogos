@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listar jogos — Catálogo de Jogos</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body data-page="listar">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="../listagem/listar.html" class="topbar__brand">
+          <span class="topbar__brand-mark">G</span>
+          <span class="topbar__brand-name">Catálogo de Jogos</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Navegação principal">
+          <a class="nav-link" data-page="listar" href="../listagem/listar.html">Listar</a>
+          <a class="nav-link" data-page="cadastrar" href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a class="nav-link" data-page="consultar" href="../consulta/consultar.html">Consultar</a>
+          <a class="nav-link" data-page="editar" href="../edicao/editar.html">Editar</a>
+          <a class="nav-link" data-page="excluir" href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__inner">
+        <span class="hero__eyebrow">Função: Listagem</span>
+        <h1 class="hero__title">Listar jogos</h1>
+        <p class="hero__subtitle">
+          Ao carregar esta tela, o JavaScript chama <code>fetch("/jogos")</code> e preenche a
+          tabela abaixo com o array JSON retornado pela API.
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+
+          <div class="card">
+            <div class="section__header" style="margin-bottom: var(--spacing-16)">
+              <div>
+                <h2 style="font-size: var(--text-subheading)">Jogos cadastrados</h2>
+                <p class="section__hint">Use os filtros para localizar um jogo na lista carregada.</p>
+              </div>
+              <button type="button" id="btn-atualizar-lista" class="btn btn-outline">
+                Atualizar lista
+              </button>
+            </div>
+
+            <div class="search-row" style="margin-bottom: var(--spacing-20)">
+              <div class="field">
+                <label for="filtro-titulo">Filtrar por título (local)</label>
+                <input type="text" id="filtro-titulo" placeholder="Ex: Minecraft" />
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Plataforma</th>
+                    <th scope="col">Gênero</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="jogos-tbody"></tbody>
+              </table>
+            </div>
+
+            <p id="estado-carregando" class="table-state hidden">Carregando jogos...</p>
+            <p id="estado-vazio" class="table-state hidden">
+              Nenhum jogo cadastrado ainda.
+              <a class="ghost-link" href="../cadastro/cadastrar.html">Cadastrar o primeiro jogo ›</a>
+            </p>
+            <p id="estado-erro-lista" class="table-state hidden"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="site-footer__links" aria-label="Links do rodapé">
+          <a href="../listagem/listar.html">Listar</a>
+          <a href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a href="../consulta/consultar.html">Consultar</a>
+          <a href="../edicao/editar.html">Editar</a>
+          <a href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="listar.js"></script>
+  </body>
+</html>

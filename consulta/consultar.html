@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar jogo — Catálogo de Jogos</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body data-page="consultar">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="../listagem/listar.html" class="topbar__brand">
+          <span class="topbar__brand-mark">G</span>
+          <span class="topbar__brand-name">Catálogo de Jogos</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Navegação principal">
+          <a class="nav-link" data-page="listar" href="../listagem/listar.html">Listar</a>
+          <a class="nav-link" data-page="cadastrar" href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a class="nav-link" data-page="consultar" href="../consulta/consultar.html">Consultar</a>
+          <a class="nav-link" data-page="editar" href="../edicao/editar.html">Editar</a>
+          <a class="nav-link" data-page="excluir" href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__inner">
+        <span class="hero__eyebrow">Função: Consulta</span>
+        <h1 class="hero__title">Consultar jogo por ID</h1>
+        <p class="hero__subtitle">
+          Ao clicar em Buscar, o JavaScript chama <code>fetch("/jogos/" + id)</code>. Se a API
+          responder 404, a tela exibe a mensagem de "não encontrado".
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+
+          <div class="card">
+            <h2 style="font-size: var(--text-subheading); margin-bottom: var(--spacing-16)">
+              Buscar por identificador
+            </h2>
+
+            <div class="search-row">
+              <div class="field">
+                <label for="busca-id">ID do jogo</label>
+                <input type="number" id="busca-id" placeholder="Ex: 1" />
+              </div>
+              <button type="button" id="btn-buscar" class="btn btn-primary">Buscar</button>
+              <button type="button" id="btn-limpar-busca" class="btn btn-outline">Limpar</button>
+            </div>
+          </div>
+
+          <div id="resultado-busca" class="card hidden" style="margin-top: var(--spacing-20)"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="site-footer__links" aria-label="Links do rodapé">
+          <a href="../listagem/listar.html">Listar</a>
+          <a href="../cadastro/cadastrar.html">Cadastrar</a>
+          <a href="../consulta/consultar.html">Consultar</a>
+          <a href="../edicao/editar.html">Editar</a>
+          <a href="../exclusao/excluir.html">Excluir</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="consultar.js"></script>
+  </body>
+</html>
